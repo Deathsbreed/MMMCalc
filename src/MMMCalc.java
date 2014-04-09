@@ -17,6 +17,7 @@ public class MMMCalc {
 	private static float mode = 0;
 	private static float range = 0;
 	private static float stdDev = 0;
+	private static float varience = 0;
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to MMMCalc v0.2, a simple tool for basic statistics calculations.\n" +
@@ -42,6 +43,7 @@ public class MMMCalc {
 				calcMode();
 				calcRange();
 				calcStdDev();
+				calcVarience();
 			} else {
 				numArray = new float[args.length];
 
@@ -55,6 +57,7 @@ public class MMMCalc {
 				calcMode();
 				calcRange();
 				calcStdDev();
+				calcVarience();
 			}
 		} else {
 			System.out.println("You did not mention any variables. Use the -h argument for help.");
@@ -140,5 +143,12 @@ public class MMMCalc {
 		stdDev = difSum / (float)Math.sqrt((double)numArray.length);
 
 		System.out.println("Standard Deviation: " + stdDev);
+	}
+
+	private static void calcVarience() {
+		// NOTE: I'm doing it this way so I don't have to convert the variables to doubles and lose precision.
+		varience = stdDev * stdDev;
+
+		System.out.println("Varience: " + varience);
 	}
 }
