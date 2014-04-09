@@ -1,3 +1,4 @@
+import java.lang.Math;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,16 +12,22 @@ import java.util.Map;
 public class MMMCalc {
 	private static boolean verbose = false;
 	private static float[] numArray;
+	private static float mean = 0;
+	private static float median = 0;
+	private static float mode = 0;
+	private static float range = 0;
+	private static float stdDev = 0;
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to MMMCalc v0.1, a simple tool for basic statistics calculations.\n" +
+		System.out.println("Welcome to MMMCalc v0.2, a simple tool for basic statistics calculations.\n" +
 			"This software is licensed under the GNU GPLv3 license and comes WITHOUT WARRANTY.\n");
 		if(args.length > 0) {
 			if(args[0].equals("-h")) {
 				System.out.println("Usage:\n" +
 					"  MMMCalc [options] [variables]\n\n" +
 					"Options:\n" +
-					"  -h -- Show this help information.\n");
+					"  -h -- Show this help information.\n" +
+					"  -v | -V -- Be verbose (show the work)\n");
 			} else if(args[0].equals("-v") || args[0].equals("-V")) {
 				verbose = true;
 				numArray = new float[args.length - 1];
@@ -34,6 +41,7 @@ public class MMMCalc {
 				calcMedian();
 				calcMode();
 				calcRange();
+				calcStdDev();
 			} else {
 				numArray = new float[args.length];
 
@@ -46,6 +54,7 @@ public class MMMCalc {
 				calcMedian();
 				calcMode();
 				calcRange();
+				calcStdDev();
 			}
 		} else {
 			System.out.println("You did not mention any variables. Use the -h argument for help.");
@@ -67,7 +76,6 @@ public class MMMCalc {
 	}
 
 	private static void calcMean() {
-		float mean = 0;
 		float sum = 0;
 
 		for(float i: numArray) {
@@ -80,11 +88,11 @@ public class MMMCalc {
 	}
 
 	private static void calcMedian() {
-		int midVar = 0;
+		int midVar = numArray.length / 2;
 
-		midVar = numArray.length / 2;
+		median = numArray[midVar];
 
-		System.out.println("Median: " + numArray[midVar]);
+		System.out.println("Median: " + median);
 	}
 
 	private static void calcMode() {
@@ -99,7 +107,6 @@ public class MMMCalc {
 			}
 		}
 
-		float mode = 0;
 		float modeFreq = 0;
 
 		for(Map.Entry<Float, Float> entry: fx.entrySet()) {
@@ -115,7 +122,6 @@ public class MMMCalc {
 
 	private static void calcRange() {
 		int l = numArray.length -1;
-		float range = 0;
 		range = numArray[l] - numArray[0];
 
 		System.out.println("Range: " + range);
@@ -123,5 +129,16 @@ public class MMMCalc {
 		if(verbose) {
 			System.out.println(numArray[l] + " - " + numArray[0] + " = " + range + "\n");
 		}
+	}
+
+	private static void calcStdDev() {
+		float difSum = 0;
+		for(int i = 0; i < numArray.length; i++) {
+			difSum += numArray[i] - mean;
+		}
+
+		stdDev = difSum / (float)Math.sqrt((double)numArray.length);
+
+		System.out.println("Standard Deviation: " + stdDev);
 	}
 }
