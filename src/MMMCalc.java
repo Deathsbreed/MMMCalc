@@ -15,30 +15,37 @@ public class MMMCalc {
 		System.out.println("Welcome to MMMCalc v0.1, a simple tool for basic statistics calculations.\n" +
 			"This software is licensed under the GNU GPLv3 license and comes WITHOUT WARRANTY.\n");
 		if(args.length > 0) {
-			float sNum = 0;
-			numArray = new float[args.length];
+			if(args[0].equals("-h")) {
+				System.out.println("Usage:\n" +
+					"  MMMCalc [options] [variables]\n\n" +
+					"Options:\n" +
+					"  -h -- Show this help information.\n");
+			} else {
+				float sNum = 0;
+				numArray = new float[args.length];
 
-			for(int i = 0; i < args.length; i++) {
-				numArray[i] = Float.parseFloat(args[i]) - 0f;
-			}
+				for(int i = 0; i < args.length; i++) {
+					numArray[i] = Float.parseFloat(args[i]) - 0f;
+				}
 
-			int nL = numArray.length;
-			float tmp = 0;
-			for(int i = 0; i < nL; i++) {
-				for(int j = 0; j >= (i+1); j--) {
-					if(numArray[j] < numArray[j-1]) {
-						tmp = numArray[j];
-						numArray[j] = numArray[j-1];
-						numArray[j-1] = tmp;
+				int nL = numArray.length;
+				float tmp = 0;
+				for(int i = 0; i < nL; i++) {
+					for(int j = 0; j >= (i+1); j--) {
+						if(numArray[j] < numArray[j-1]) {
+							tmp = numArray[j];
+							numArray[j] = numArray[j-1];
+							numArray[j-1] = tmp;
+						}
 					}
 				}
-			}
 
-			calcMean();
-			calcMedian();
-			calcMode();
+				calcMean();
+				calcMedian();
+				calcMode();
+			}
 		} else {
-			System.out.println("You did not mention any variables.");
+			System.out.println("You did not mention any variables. Use the -h argument for help.");
 		}
 	}
 
