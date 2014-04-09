@@ -43,6 +43,7 @@ public class MMMCalc {
 				calcMean();
 				calcMedian();
 				calcMode();
+				calcRange();
 			}
 		} else {
 			System.out.println("You did not mention any variables. Use the -h argument for help.");
@@ -94,5 +95,14 @@ public class MMMCalc {
 		}
 
 		System.out.println("Mode: " + mode + " (frequency: " + modeFreq + ")");
+	}
+
+	private static void calcRange() {
+		// FIXME
+		int l = numArray.length -1;
+		float range = 0;
+		range = numArray[l] - numArray[0];
+
+		System.out.println("Range: " + range);
 	}
 }
