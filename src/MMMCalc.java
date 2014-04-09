@@ -9,6 +9,7 @@ import java.util.Map;
  * 
  */
 public class MMMCalc {
+	private static boolean verbose = false;
 	private static float[] numArray;
 
 	public static void main(String[] args) {
@@ -21,26 +22,25 @@ public class MMMCalc {
 					"Options:\n" +
 					"  -h -- Show this help information.\n");
 			} else if(args[0].equals("-v") || args[0].equals("-V")) {
-				// Stuff here.
+				verbose = true;
+				numArray = new float[args.length - 1];
+
+				for(int i = 0; i < numArray.length; i++) {
+					numArray[i] = Float.parseFloat(args[i+1]);
+				}
+				sortArray();
+
+				calcMean();
+				calcMedian();
+				calcMode();
+				calcRange();
 			} else {
-				float sNum = 0;
 				numArray = new float[args.length];
 
 				for(int i = 0; i < args.length; i++) {
 					numArray[i] = Float.parseFloat(args[i]) - 0f;
 				}
-
-				int nL = numArray.length;
-				float tmp = 0;
-				for(int i = 0; i < nL; i++) {
-					for(int j = 0; j >= (i+1); j--) {
-						if(numArray[j] < numArray[j-1]) {
-							tmp = numArray[j];
-							numArray[j] = numArray[j-1];
-							numArray[j-1] = tmp;
-						}
-					}
-				}
+				sortArray();
 
 				calcMean();
 				calcMedian();
@@ -49,6 +49,20 @@ public class MMMCalc {
 			}
 		} else {
 			System.out.println("You did not mention any variables. Use the -h argument for help.");
+		}
+	}
+
+	private static void sortArray() {
+		int nL = numArray.length;
+		float tmp = 0;
+		for(int i = 0; i < nL; i++) {
+			for(int j = (nL-1); j >= (i+1); j--) {
+				if(numArray[j] < numArray[j-1]) {
+					tmp = numArray[j];
+					numArray[j] = numArray[j-1];
+					numArray[j-1] = tmp;
+				}
+			}
 		}
 	}
 
@@ -100,11 +114,14 @@ public class MMMCalc {
 	}
 
 	private static void calcRange() {
-		// FIXME
 		int l = numArray.length -1;
 		float range = 0;
 		range = numArray[l] - numArray[0];
 
 		System.out.println("Range: " + range);
+
+		if(verbose) {
+			System.out.println(numArray[l] + " - " + numArray[0] + " = " + range + "\n");
+		}
 	}
 }
