@@ -20,6 +20,8 @@ public class MMMCalc {
 					"  MMMCalc [options] [variables]\n\n" +
 					"Options:\n" +
 					"  -h -- Show this help information.\n");
+			} else if(args[0].equals("-v") || args[0].equals("-V")) {
+				// Stuff here.
 			} else {
 				float sNum = 0;
 				numArray = new float[args.length];
