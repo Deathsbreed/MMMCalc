@@ -30,6 +30,8 @@ public class MMMCalc {
 					"  MMMCalc [options] [variables]\n\n" +
 					"Options:\n" +
 					"  -v | -V -- Be verbose (show the work).\n" +
+					"  -w -- Show warranty information.\n" +
+					"  -c -- Show copyright information.\n" +
 					"  -h -- Show this help information.\n");
 			} else if(args[0].equals("-w")) {
 				System.out.println("THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY\n" +
