@@ -134,6 +134,17 @@ public class MMMCalc {
 		median = numArray[midVar];
 
 		System.out.println("Median: " + median);
+
+		if(verbose) {
+			for(int i = 0; i < numArray.length; i++) {
+				if(i == midVar) {
+					System.out.print(">" + numArray[i] + "< ");
+				} else {
+					System.out.print(numArray[i] + " ");
+				}
+			}
+			System.out.print("\n\n");
+		}
 	}
 
 	private static void calcMode() {
@@ -159,6 +170,13 @@ public class MMMCalc {
 		}
 
 		System.out.println("Mode: " + mode + " (frequency: " + modeFreq + ")");
+
+		if(verbose) {
+			for(Map.Entry<Float, Float> entry:fx.entrySet()) {
+				System.out.print(entry.getKey() + "(" + entry.getValue() + ") ");
+			}
+			System.out.print("\n\n");
+		}
 	}
 
 	private static void calcRange() {
