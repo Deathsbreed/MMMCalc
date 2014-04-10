@@ -130,8 +130,15 @@ public class MMMCalc {
 
 	private static void calcMedian() {
 		int midVar = numArray.length / 2;
+		boolean even;
 
-		median = numArray[midVar];
+		if(numArray.length % 2 == 0) {
+			median = (numArray[midVar] + numArray[midVar-1]) / 2;
+			even = true;
+		} else {
+			median = numArray[midVar];
+			even = false;
+		}
 
 		System.out.println("Median: " + median);
 
