@@ -18,7 +18,7 @@ public class MMMCalc {
 	private static float mode = 0;
 	private static float range = 0;
 	private static float stdDev = 0;
-	private static float varience = 0;
+	private static float variance = 0;
 
 	public static void main(String[] args) {
 		System.out.println("MMMCalc v0.2, Copyright (C) 2014 Nicolás A. Ortega\n" +
@@ -70,7 +70,7 @@ public class MMMCalc {
 				calcMode();
 				calcRange();
 				calcStdDev();
-				calcVarience();
+				calcVariance();
 			} else {
 				numArray = new float[args.length];
 
@@ -84,7 +84,7 @@ public class MMMCalc {
 				calcMode();
 				calcRange();
 				calcStdDev();
-				calcVarience();
+				calcVariance();
 			}
 		} else {
 			System.out.println("You did not mention any variables. Use the -h argument for help.");
@@ -194,14 +194,14 @@ public class MMMCalc {
 		}
 	}
 
-	private static void calcVarience() {
+	private static void calcVariance() {
 		// NOTE: I'm doing it this way so I don't have to convert the variables to doubles and lose precision.
-		varience = stdDev * stdDev;
+		variance = stdDev * stdDev;
 
-		System.out.println("Varience: " + varience);
+		System.out.println("Variance: " + variance);
 
 		if(verbose) {
-			System.out.println(stdDev + "^2 = " + varience + "\n");
+			System.out.println(stdDev + "^2 = " + variance + "\n");
 		}
 	}
 }
