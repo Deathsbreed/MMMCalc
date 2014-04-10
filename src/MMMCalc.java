@@ -144,10 +144,20 @@ public class MMMCalc {
 
 		if(verbose) {
 			for(int i = 0; i < numArray.length; i++) {
-				if(i == midVar) {
-					System.out.print(">" + numArray[i] + "< ");
+				if(even) {
+					if(i == midVar - 1) {
+						System.out.print(">" + numArray[i] + " !" + median + "! ");
+					} else if(i == midVar) {
+						System.out.print(numArray[i] + "< ");
+					} else {
+						System.out.print(numArray[i] + " ");
+					}
 				} else {
-					System.out.print(numArray[i] + " ");
+					if(i == midVar) {
+						System.out.print(">" + numArray[i] + "< ");
+					} else {
+						System.out.print(numArray[i] + " ");
+					}
 				}
 			}
 			System.out.print("\n\n");
