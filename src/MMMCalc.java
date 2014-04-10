@@ -1,4 +1,5 @@
 import java.lang.Math;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -114,6 +115,18 @@ public class MMMCalc {
 		mean = sum / (float)numArray.length;
 
 		System.out.println("Mean: " + mean);
+
+		if(verbose) {
+			System.out.print("(");
+			for(int i = 0; i < numArray.length; i++) {
+				if(i == numArray.length - 1) {
+					System.out.print(numArray[i] + ")");
+				} else {
+					System.out.print(numArray[i] + " + ");
+				}
+			}
+			System.out.print(" / " + numArray.length + " = " + mean + "\n\n");
+		}
 	}
 
 	private static void calcMedian() {
