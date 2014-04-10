@@ -119,13 +119,12 @@ public class MMMCalc {
 		if(verbose) {
 			System.out.print("(");
 			for(int i = 0; i < numArray.length; i++) {
-				if(i == numArray.length - 1) {
-					System.out.print(numArray[i] + ")");
-				} else {
-					System.out.print(numArray[i] + " + ");
+				System.out.print(numArray[i]);
+				if(i != numArray.length -1) {
+					System.out.print(" + ");
 				}
 			}
-			System.out.print(" / " + numArray.length + " = " + mean + "\n\n");
+			System.out.print(") / " + numArray.length + " = " + mean + "\n\n");
 		}
 	}
 
@@ -182,6 +181,17 @@ public class MMMCalc {
 		stdDev = difSum / (float)Math.sqrt((double)numArray.length);
 
 		System.out.println("Standard Deviation: " + stdDev);
+
+		if(verbose) {
+			System.out.print("sqrt((");
+			for(int i = 0; i < numArray.length; i++) {
+				System.out.print(numArray[i] + " - " + mean);
+				if(i != numArray.length - 1) {
+					System.out.print(" + ");
+				}
+			}
+			System.out.print(")^2 / " + numArray.length + ") = " + stdDev + "\n\n");
+		}
 	}
 
 	private static void calcVarience() {
@@ -189,5 +199,9 @@ public class MMMCalc {
 		varience = stdDev * stdDev;
 
 		System.out.println("Varience: " + varience);
+
+		if(verbose) {
+			System.out.println(stdDev + "^2 = " + varience + "\n");
+		}
 	}
 }
