@@ -146,15 +146,15 @@ public class MMMCalc {
 			for(int i = 0; i < numArray.length; i++) {
 				if(even) {
 					if(i == midVar - 1) {
-						System.out.print(">" + numArray[i] + " !" + median + "! ");
+						System.out.print(">>" + numArray[i] + " !" + median + "! ");
 					} else if(i == midVar) {
-						System.out.print(numArray[i] + "< ");
+						System.out.print(numArray[i] + "<< ");
 					} else {
 						System.out.print(numArray[i] + " ");
 					}
 				} else {
 					if(i == midVar) {
-						System.out.print(">" + numArray[i] + "< ");
+						System.out.print(">>" + numArray[i] + "<< ");
 					} else {
 						System.out.print(numArray[i] + " ");
 					}
