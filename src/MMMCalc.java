@@ -84,7 +84,9 @@ public class MMMCalc {
 				sortArray();
 
 				calcMean();
+				calcQ1();
 				calcMedian();
+				calcQ3();
 				calcMode();
 				calcRange();
 				calcStdDev();
@@ -133,7 +135,19 @@ public class MMMCalc {
 	}
 
 	private static void calcQ1() {
-		// Stuff here.
+		int q1Pos = numArray.length / 4;
+
+		if(numArray.length % 4 == 0) {
+			q1 = (numArray[q1Pos] + numArray[q1Pos-1]) / 2;
+		} else {
+			q1 = numArray[q1Pos];
+		}
+
+		System.out.println("Q1: " + q1);
+
+		if(verbose) {
+			// Add verbose stuff here.
+		}
 	}
 
 	private static void calcMedian() {
@@ -173,7 +187,19 @@ public class MMMCalc {
 	}
 
 	private static void calcQ3() {
-		// Stuff here.
+		int q3Pos = (numArray.length * 3) / 4;
+
+		if((numArray.length * 3) % 4 == 0) {
+			q3 = (numArray[q3Pos] + numArray[q3Pos-1]) / 2;
+		} else {
+			q3 = numArray[q3Pos];
+		}
+
+		System.out.println("Q3: " + q3);
+
+		if(verbose) {
+			// Add verbose stuff here.
+		}
 	}
 
 	private static void calcMode() {
