@@ -136,37 +136,57 @@ public class MMMCalc {
 
 	private static void calcQ1() {
 		int q1Pos = numArray.length / 4;
+		boolean exact;
 
 		if(numArray.length % 4 == 0) {
 			q1 = (numArray[q1Pos] + numArray[q1Pos-1]) / 2;
+			exact = false;
 		} else {
 			q1 = numArray[q1Pos];
+			exact = true;
 		}
 
 		System.out.println("Q1: " + q1);
 
 		if(verbose) {
-			// Add verbose stuff here.
+			for(int i = 0; i < numArray.length; i++) {
+				if(!exact) {
+					if(i == q1Pos - 1) {
+						System.out.print(">>" + numArray[i] + " !" + q1 + "! ");
+					} else if( i == q1Pos) {
+						System.out.print(numArray[i] + "<< ");
+					} else {
+						System.out.print(numArray[i] + " ");
+					}
+				} else {
+					if(i == q1Pos) {
+						System.out.print(">>" + numArray[i] + "<< ");
+					} else {
+						System.out.print(numArray[i] + " ");
+					}
+				}
+			}
+			System.out.print("\n\n");
 		}
 	}
 
 	private static void calcMedian() {
 		int midVar = numArray.length / 2;
-		boolean even;
+		boolean exact;
 
 		if(numArray.length % 2 == 0) {
 			median = (numArray[midVar] + numArray[midVar-1]) / 2;
-			even = true;
+			exact = false;
 		} else {
 			median = numArray[midVar];
-			even = false;
+			exact = true;
 		}
 
 		System.out.println("Median: " + median);
 
 		if(verbose) {
 			for(int i = 0; i < numArray.length; i++) {
-				if(even) {
+				if(!exact) {
 					if(i == midVar - 1) {
 						System.out.print(">>" + numArray[i] + " !" + median + "! ");
 					} else if(i == midVar) {
@@ -188,17 +208,37 @@ public class MMMCalc {
 
 	private static void calcQ3() {
 		int q3Pos = (numArray.length * 3) / 4;
+		boolean exact;
 
 		if((numArray.length * 3) % 4 == 0) {
 			q3 = (numArray[q3Pos] + numArray[q3Pos-1]) / 2;
+			exact = false;
 		} else {
 			q3 = numArray[q3Pos];
+			exact = true;
 		}
 
 		System.out.println("Q3: " + q3);
 
 		if(verbose) {
-			// Add verbose stuff here.
+			for(int i = 0; i < numArray.length; i++) {
+				if(!exact) {
+					if(i == q3Pos - 1) {
+						System.out.print(">>" + numArray[i] + " !" + q3 + "! ");
+					} else if(i == q3Pos) {
+						System.out.print(numArray[i] + "<< ");
+					} else {
+						System.out.print(numArray[i] + " ");
+					}
+				} else {
+					if(i == q3Pos) {
+						System.out.print(">>" + numArray[i] + "<< ");
+					} else {
+						System.out.print(numArray[i] + " ");
+					}
+				}
+			}
+			System.out.print("\n\n");
 		}
 	}
 
