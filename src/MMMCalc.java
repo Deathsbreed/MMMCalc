@@ -14,7 +14,9 @@ public class MMMCalc {
 	private static boolean verbose = false;
 	private static float[] numArray;
 	private static float mean = 0;
+	private static float q1 = 0;
 	private static float median = 0;
+	private static float q3 = 0;
 	private static float mode = 0;
 	private static float range = 0;
 	private static float stdDev = 0;
@@ -66,7 +68,9 @@ public class MMMCalc {
 				sortArray();
 
 				calcMean();
+				calcQ1();
 				calcMedian();
+				calcQ3();
 				calcMode();
 				calcRange();
 				calcStdDev();
@@ -128,6 +132,10 @@ public class MMMCalc {
 		}
 	}
 
+	private static void calcQ1() {
+		// Stuff here.
+	}
+
 	private static void calcMedian() {
 		int midVar = numArray.length / 2;
 		boolean even;
@@ -162,6 +170,10 @@ public class MMMCalc {
 			}
 			System.out.print("\n\n");
 		}
+	}
+
+	private static void calcQ3() {
+		// Stuff here.
 	}
 
 	private static void calcMode() {
