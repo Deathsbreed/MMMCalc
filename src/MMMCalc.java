@@ -23,7 +23,7 @@ public class MMMCalc {
 	private static float variance = 0;
 
 	public static void main(String[] args) {
-		System.out.println("MMMCalc v0.2, Copyright (C) 2014 Nicolás A. Ortega\n" +
+		System.out.println("MMMCalc v0.3, Copyright (C) 2014 Nicolás A. Ortega\n" +
 					"This program comes with ABSOLUTELY NO WARRANTY; for details use '-w'\n" +
 					"This is free software, and you are welcome to redistribute it\n" +
 					"under certain conditions; use '-c' for details.\n");
