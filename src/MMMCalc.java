@@ -138,7 +138,7 @@ public class MMMCalc {
 		int q1Pos = numArray.length / 4;
 		boolean exact;
 
-		if(numArray.length % 4 == 0) {
+		if(numArray.length % 4 != 0) {
 			q1 = (numArray[q1Pos] + numArray[q1Pos-1]) / 2;
 			exact = false;
 		} else {
@@ -210,8 +210,8 @@ public class MMMCalc {
 		int q3Pos = (numArray.length * 3) / 4;
 		boolean exact;
 
-		if((numArray.length * 3) % 4 == 0) {
-			q3 = (numArray[q3Pos] + numArray[q3Pos-1]) / 2;
+		if((numArray.length * 3) % 4 != 0) {
+			q3 = (numArray[q3Pos+1] + numArray[q3Pos]) / 2;
 			exact = false;
 		} else {
 			q3 = numArray[q3Pos];
@@ -223,9 +223,9 @@ public class MMMCalc {
 		if(verbose) {
 			for(int i = 0; i < numArray.length; i++) {
 				if(!exact) {
-					if(i == q3Pos - 1) {
+					if(i == q3Pos) {
 						System.out.print(">>" + numArray[i] + " !" + q3 + "! ");
-					} else if(i == q3Pos) {
+					} else if(i == q3Pos + 1) {
 						System.out.print(numArray[i] + "<< ");
 					} else {
 						System.out.print(numArray[i] + " ");
