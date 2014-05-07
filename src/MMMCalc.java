@@ -134,6 +134,7 @@ public class MMMCalc {
 		}
 	}
 
+	// FIXME: Q1 calculates incorrectly, it is supposed to be halfway between the first variable and the median variable.
 	private static void calcQ1() {
 		int q1Pos = numArray.length / 4;
 		boolean exact;
@@ -206,6 +207,7 @@ public class MMMCalc {
 		}
 	}
 
+	// FIXME: Needs to calculate haflway between the median value and the last value.
 	private static void calcQ3() {
 		int q3Pos = (numArray.length * 3) / 4;
 		boolean exact;
