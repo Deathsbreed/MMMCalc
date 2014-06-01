@@ -134,7 +134,6 @@ public class MMMCalc {
 		}
 	}
 
-	// FIXME: Q1 calculates incorrectly, it is supposed to be halfway between the first variable and the median variable.
 	private static void calcQ1() {
 		int q1Pos;
 		// c stands for case... Cases correspond to their order in the following if statements (4 different cases).
