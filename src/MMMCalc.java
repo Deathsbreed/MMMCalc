@@ -136,30 +136,58 @@ public class MMMCalc {
 
 	// FIXME: Q1 calculates incorrectly, it is supposed to be halfway between the first variable and the median variable.
 	private static void calcQ1() {
-		int q1Pos = numArray.length / 4;
-		boolean exact;
+		int q1Pos;
+		// c stands for case... Cases correspond to their order in the following if statements (4 different cases).
+		int c;
 
-		if(numArray.length % 4 != 0) {
-			q1 = (numArray[q1Pos] + numArray[q1Pos-1]) / 2;
-			exact = false;
+		if(numArray.length % 2.0 == 0) {
+			q1Pos = (int)(numArray.length / 4);
+			if(numArray.length % 4.0 == 0) {
+				q1 = (numArray[q1Pos] + numArray[q1Pos-1]) / 2;
+				c = 1;
+			} else {
+				q1 = numArray[q1Pos];
+				c = 2;
+			}
 		} else {
-			q1 = numArray[q1Pos];
-			exact = true;
+			if(Math.ceil(numArray.length / 2.0) % 2.0 == 0) {
+				q1Pos = (int)(Math.ceil(numArray.length / 2.0) / 2.0);
+				q1 = (numArray[q1Pos] + numArray[q1Pos+1]) / 2;
+				c = 3;
+			} else {
+				q1Pos = (int)Math.ceil(numArray.length / 4.0);
+				q1 = numArray[q1Pos];
+				c = 4;
+			}
 		}
 
 		System.out.println("Q1: " + q1);
 
 		if(verbose) {
 			for(int i = 0; i < numArray.length; i++) {
-				if(!exact) {
+				if(c == 1) {
 					if(i == q1Pos - 1) {
-						System.out.print(">>" + numArray[i] + " !" + q1 + "! ");
-					} else if( i == q1Pos) {
+						System.out.print(">>" + numArray[i] + " !" + q1  + "! ");
+					} else if(i == q1Pos) {
 						System.out.print(numArray[i] + "<< ");
 					} else {
 						System.out.print(numArray[i] + " ");
 					}
-				} else {
+				} else if(c == 2) {
+					if(i == q1Pos) {
+						System.out.print(">>" + numArray[i] + "<< ");
+					} else {
+						System.out.print(numArray[i] + " ");
+					}
+				} else if(c == 3) {
+					if(i == q1Pos) {
+						System.out.print(">>" + numArray[i] + " !" + q1 + "! ");
+					} else if(i == q1Pos + 1) {
+						System.out.print(numArray[i] + "<< ");
+					} else {
+						System.out.print(numArray[i] + " ");
+					}
+				} else if(c == 4) {
 					if(i == q1Pos) {
 						System.out.print(">>" + numArray[i] + "<< ");
 					} else {
