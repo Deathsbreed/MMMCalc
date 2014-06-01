@@ -337,7 +337,6 @@ public class MMMCalc {
 	}
 
 	private static void calcVariance() {
-		// NOTE: I'm doing it this way so I don't have to convert the variables to doubles and lose precision.
 		variance = stdDev * stdDev;
 
 		System.out.println("Variance: " + variance);
