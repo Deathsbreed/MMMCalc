@@ -6,7 +6,7 @@ This is a very simple project, it was made for educational purposes (hence why i
 ###Compiling
 To compile make sure you have JDK and Apache Ant installed. Then run the following command in the root directory of the project:
 ```
-$ ant jar
+$ ant
 ```
 
 ###Contributing
