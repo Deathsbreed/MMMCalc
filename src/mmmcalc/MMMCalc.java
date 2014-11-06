@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * @author Nicolás A. Ortega
  * @copyright (C) Nicolás A. Ortega
- * @license GNU General Public License 3.0 (GPLv3)
+ * @license GNU GPLv3
  * @year 2014
  * 
  */
@@ -238,7 +238,7 @@ public class MMMCalc {
 
 	// FIXME: Needs to calculate haflway between the median value and the last value.
 	private static void calcQ3() {
-		int q3Pos = (numArray.length * 3) / 4;
+		/*int q3Pos = (numArray.length * 3) / 4;
 		boolean exact;
 
 		if((numArray.length * 3) % 4 != 0) {
@@ -270,7 +270,8 @@ public class MMMCalc {
 				}
 			}
 			System.out.print("\n\n");
-		}
+		}*/
+		System.out.println("Q3 is not currently functional.");
 	}
 
 	private static void calcMode() {
