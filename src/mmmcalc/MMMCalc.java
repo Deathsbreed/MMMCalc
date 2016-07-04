@@ -94,7 +94,7 @@ public class MMMCalc {
 				calcStdDev();
 				calcVariance();
 			}
-		} else {
+	} else {
 			System.out.println("You did not mention any variables. Use the -h argument for help.");
 		}
 	}
@@ -271,7 +271,7 @@ public class MMMCalc {
 			}
 			System.out.print("\n\n");
 		}*/
-		System.out.println("Q3 is not currently functional.");
+		System.out.println("Q3 is not currently functional.\n");
 	}
 
 	private static void calcMode() {
