@@ -12,6 +12,6 @@ set(CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS} -g -O3")
 set(CMAKE_C_FLAGS_MIN_SIZEREL "${CMAKE_C_FLAGS} -Os")
 
 set(SRCS
-    src/Main.c)
+    src/main.c)
 
 add_executable(mmmcalc ${SRCS})
