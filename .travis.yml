@@ -1,0 +1,13 @@
+# Define the language
+language: c
+
+addons:
+    apt:
+        packages:
+            - build-essential
+            - cmake
+
+script:
+    - cd build/
+    - cmake -DCMAKE_BUILD_TYPE=Release ..
+    - make
